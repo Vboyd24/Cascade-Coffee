@@ -272,46 +272,42 @@ img {
         radial-gradient(ellipse at 20% 50%, rgba(74, 144, 164, 0.08) 0%, transparent 60%),
         radial-gradient(ellipse at 80% 30%, rgba(126, 200, 227, 0.05) 0%, transparent 50%),
         radial-gradient(ellipse at 50% 100%, rgba(26, 18, 11, 0.8) 0%, transparent 60%);
+    z-index: 0;
 }
 
-/* Cascade drip effect */
-.cascade-drip {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.drip {
-    position: absolute;
-    top: -10%;
-    width: 2px;
-    background: linear-gradient(to bottom, transparent, rgba(126, 200, 227, 0.3), transparent);
-    animation: drip-fall linear infinite;
-}
-
-.drip-1 { left: 15%; height: 120px; animation-duration: 4s; animation-delay: 0s; }
-.drip-2 { left: 35%; height: 80px; animation-duration: 3.5s; animation-delay: 1s; }
-.drip-3 { left: 55%; height: 100px; animation-duration: 5s; animation-delay: 0.5s; }
-.drip-4 { left: 75%; height: 60px; animation-duration: 3s; animation-delay: 2s; }
-.drip-5 { left: 90%; height: 90px; animation-duration: 4.5s; animation-delay: 1.5s; }
-
-@keyframes drip-fall {
-    0% { transform: translateY(-100%); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(110vh); opacity: 0; }
-}
-
-.hero-content {
+/* Split Hero Layout */
+.hero-split {
     position: relative;
     z-index: 2;
-    text-align: center;
-    max-width: 800px;
-    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 32px;
+    min-height: 100vh;
+}
+
+.hero-text {
+    text-align: left;
+    max-width: 560px;
+    padding-right: 40px;
+}
+
+.hero-waterfall {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    min-height: 500px;
+    max-height: 800px;
+}
+
+#waterfall-hero-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 16px;
 }
 
 .hero-badge {
@@ -359,7 +355,7 @@ img {
     line-height: 1.8;
     color: rgba(245, 240, 235, 0.7);
     max-width: 600px;
-    margin: 0 auto 40px;
+    margin: 0 0 40px;
     animation: fadeInUp 0.8s ease 0.8s forwards;
     opacity: 0;
 }
@@ -367,7 +363,7 @@ img {
 .hero-actions {
     display: flex;
     gap: 16px;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     animation: fadeInUp 0.8s ease 1s forwards;
     opacity: 0;
@@ -1179,6 +1175,37 @@ img {
     }
 }
 
+@media (max-width: 1024px) {
+    .hero-split {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: var(--nav-height);
+    }
+
+    .hero-text {
+        text-align: center;
+        max-width: 100%;
+        padding-right: 0;
+        padding-top: 24px;
+        order: 1;
+    }
+
+    .hero-subtitle {
+        margin: 0 auto 40px;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-waterfall {
+        order: 2;
+        height: 50vh;
+        min-height: 350px;
+        max-height: 500px;
+    }
+}
+
 @media (max-width: 768px) {
     :root {
         --nav-height: 64px;
@@ -1194,6 +1221,11 @@ img {
 
     .section {
         padding: 80px 0;
+    }
+
+    .hero-waterfall {
+        height: 45vh;
+        min-height: 300px;
     }
 
     .experience-grid {

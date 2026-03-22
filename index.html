@@ -50,24 +50,24 @@
     <!-- Hero Section -->
     <header class="hero" id="hero">
         <div class="hero-overlay"></div>
-        <div class="cascade-drip">
-            <div class="drip drip-1"></div>
-            <div class="drip drip-2"></div>
-            <div class="drip drip-3"></div>
-            <div class="drip drip-4"></div>
-            <div class="drip drip-5"></div>
-        </div>
-        <div class="hero-content">
-            <div class="hero-badge">Premium Nitro Brew</div>
-            <h1 class="hero-title">
-                <span class="title-line">Where the</span>
-                <span class="title-line title-accent">Cascade</span>
-                <span class="title-line">Meets the Cup</span>
-            </h1>
-            <p class="hero-subtitle">Nature's most powerful force — water cascading over ancient stone — inspires every pour. Our nitro brew flows like a waterfall, delivering a velvety smooth cascade of flavor that redefines the coffee experience.</p>
-            <div class="hero-actions">
-                <a href="#wholesale" class="btn btn-primary">Explore Wholesale</a>
-                <a href="#experience" class="btn btn-secondary">Watch the Pour</a>
+        <div class="hero-split">
+            <!-- Left: Text Content -->
+            <div class="hero-text">
+                <div class="hero-badge">Premium Nitro Brew</div>
+                <h1 class="hero-title">
+                    <span class="title-line">Where the</span>
+                    <span class="title-line title-accent">Cascade</span>
+                    <span class="title-line">Meets the Cup</span>
+                </h1>
+                <p class="hero-subtitle">Nature's most powerful force — water cascading over ancient stone — inspires every pour. Our nitro brew flows like a waterfall, delivering a velvety smooth cascade of flavor that redefines the coffee experience.</p>
+                <div class="hero-actions">
+                    <a href="#wholesale" class="btn btn-primary">Explore Wholesale</a>
+                    <a href="#experience" class="btn btn-secondary">Watch the Pour</a>
+                </div>
+            </div>
+            <!-- Right: Waterfall → Nitro Brew Animation -->
+            <div class="hero-waterfall">
+                <canvas id="waterfall-hero-canvas"></canvas>
             </div>
         </div>
         <div class="hero-scroll">
@@ -421,5 +421,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="waterfall.js"></script>
 </body>
 </html>
