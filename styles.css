@@ -262,366 +262,33 @@ img {
 /* --- Hero Section --- */
 .hero {
     position: relative;
+    z-index: 2;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background: rgb(10, 15, 8);
 }
 
-.hero-bg {
+#cascade-hero-canvas {
     position: absolute;
-    inset: 0;
-    background:
-        url('https://images.unsplash.com/photo-1494472155656-f34e81b17ddc?w=1920&q=85') center center / cover no-repeat;
-    z-index: 0;
-}
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(to bottom, rgba(15, 20, 10, 0.1) 0%, rgba(10, 15, 8, 0.15) 40%, rgba(15, 12, 8, 0.45) 75%, rgba(20, 15, 10, 0.65) 100%),
-        radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 30%, rgba(5, 10, 5, 0.35) 100%);
-    z-index: 1;
-}
-
-#waterfall-hero-canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-}
-
-/* Brand Title - Top Left */
-.hero-brand-title {
-    position: absolute;
-    top: 90px;
-    left: 40px;
-    z-index: 10;
-    font-family: var(--font-brand);
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 900;
-    color: var(--color-rustic-cream);
-    text-shadow:
-        2px 3px 6px rgba(0,0,0,0.6),
-        0 0 60px rgba(0,0,0,0.3);
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    line-height: 1;
-    animation: fadeInUp 1s ease forwards;
-    opacity: 0;
-}
-
-/* Center Content */
-.hero-center {
-    position: absolute;
-    top: 36%;
-    left: 42%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    text-align: center;
-    animation: fadeInUp 1s ease 0.3s forwards;
-    opacity: 0;
-    width: max-content;
-}
-
-.hero-tagline {
-    font-family: var(--font-brand);
-    font-size: clamp(1.5rem, 3.5vw, 3rem);
-    font-weight: 700;
-    color: var(--color-rustic-cream);
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.6), 0 0 30px rgba(0,0,0,0.3);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-.hero-subtagline {
-    font-family: var(--font-accent);
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--color-rustic-cream);
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    opacity: 0.9;
-}
-
-/* --- Coffee Glass with Branding --- */
-.hero-glass {
-    position: absolute;
-    right: 12%;
-    bottom: 12%;
-    z-index: 10;
-    animation: fadeInUp 1s ease 0.5s forwards;
-    opacity: 0;
-}
-
-.glass-container {
-    position: relative;
-    width: 280px;
-}
-
-/* Rock/stone base under glass */
-.glass-container::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: -30px;
-    right: -50px;
-    height: 16px;
-    background: radial-gradient(ellipse, rgba(60, 55, 45, 0.6) 0%, rgba(40, 35, 30, 0.3) 60%, transparent 100%);
-    border-radius: 50%;
-    filter: blur(4px);
-}
-
-/* Pour stream from above */
-.pour-stream {
-    position: absolute;
-    top: -350px;
-    left: 45%;
-    transform: translateX(-50%);
-    width: 24px;
-    height: 360px;
-    overflow: hidden;
-    z-index: 3;
-}
-
-.pour-liquid {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom,
-        rgba(120, 60, 20, 0.6),
-        rgba(100, 50, 15, 0.75),
-        rgba(80, 40, 10, 0.85)
-    );
-    border-radius: 0 0 50% 50%;
-    position: relative;
-    animation: pour-wobble 2s ease-in-out infinite;
-}
-
-.pour-liquid::before {
-    content: '';
-    position: absolute;
-    left: 3px;
     top: 0;
-    width: 6px;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(180, 120, 60, 0.4), rgba(160, 100, 40, 0.2));
-    border-radius: 50%;
-}
-
-@keyframes pour-wobble {
-    0%, 100% { transform: scaleX(1); }
-    25% { transform: scaleX(0.85); }
-    50% { transform: scaleX(1.1); }
-    75% { transform: scaleX(0.9); }
-}
-
-/* Glass Mug */
-.glass-mug {
-    position: relative;
-}
-
-.glass-body-outer {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-}
-
-.glass-body-inner {
-    width: 210px;
-    height: 290px;
-    background: linear-gradient(135deg,
-        rgba(255, 255, 255, 0.12),
-        rgba(255, 255, 255, 0.06),
-        rgba(255, 255, 255, 0.1)
-    );
-    border: 1.5px solid rgba(255, 255, 255, 0.25);
-    border-radius: 6px 6px 10px 10px;
-    overflow: hidden;
-    position: relative;
-    backdrop-filter: blur(2px);
-    box-shadow:
-        inset 0 0 30px rgba(255,255,255,0.05),
-        0 8px 32px rgba(0,0,0,0.3),
-        0 2px 8px rgba(0,0,0,0.2);
-}
-
-/* Glass reflection */
-.glass-body-inner::before {
-    content: '';
-    position: absolute;
-    left: 8px;
-    top: 10px;
-    width: 12px;
-    height: 60%;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.15), rgba(255,255,255,0.02));
-    border-radius: 8px;
-    z-index: 5;
-}
-
-/* Coffee fill */
-.coffee-fill {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 82%;
-    background: linear-gradient(to bottom,
-        rgba(60, 30, 10, 0.85),
-        rgba(40, 20, 8, 0.92),
-        rgba(25, 12, 5, 0.95)
-    );
-    overflow: hidden;
-}
-
-/* Coffee swirls (cream mixing) */
-.coffee-swirl {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(ellipse, rgba(200, 170, 120, 0.25), transparent);
-    animation: swirl-move 8s ease-in-out infinite;
-}
-
-.swirl-1 {
-    width: 80px;
-    height: 40px;
-    top: 25%;
-    left: 10%;
-    animation-delay: 0s;
-}
-
-.swirl-2 {
-    width: 60px;
-    height: 30px;
-    top: 50%;
-    right: 5%;
-    animation-delay: -3s;
-}
-
-.swirl-3 {
-    width: 70px;
-    height: 35px;
-    bottom: 20%;
-    left: 20%;
-    animation-delay: -5s;
-}
-
-@keyframes swirl-move {
-    0%, 100% { transform: translateX(0) rotate(0deg); opacity: 0.4; }
-    25% { transform: translateX(15px) rotate(5deg); opacity: 0.7; }
-    50% { transform: translateX(-10px) rotate(-3deg); opacity: 0.5; }
-    75% { transform: translateX(8px) rotate(2deg); opacity: 0.6; }
-}
-
-/* Foam layer */
-.foam-layer {
-    position: absolute;
-    bottom: 82%;
-    left: 0;
-    right: 0;
-    height: 10%;
-    background: linear-gradient(to bottom,
-        rgba(245, 235, 215, 0.95),
-        rgba(220, 200, 170, 0.85),
-        rgba(180, 160, 130, 0.5)
-    );
-    border-radius: 2px;
-}
-
-.foam-layer::before {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: 5%;
-    right: 5%;
-    height: 6px;
-    background: rgba(255, 250, 240, 0.7);
-    border-radius: 50%;
-    filter: blur(1px);
-}
-
-/* Logo on glass */
-.glass-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    pointer-events: none;
-}
-
-.glass-logo svg {
-    width: 75px;
-    height: 75px;
-    margin-bottom: 4px;
-}
-
-.glass-logo-text {
-    font-family: var(--font-brand);
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: rgba(255, 248, 235, 0.7);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-}
-
-.glass-logo-sub {
-    font-family: var(--font-brand);
-    font-size: 0.7rem;
-    font-weight: 400;
-    color: rgba(255, 248, 235, 0.55);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-top: -2px;
-}
-
-.glass-logo-tagline {
-    font-family: var(--font-accent);
-    font-size: 0.65rem;
-    font-weight: 400;
-    color: rgba(255, 248, 235, 0.5);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-top: 6px;
-    padding-top: 4px;
-    border-top: 1px solid rgba(255, 248, 235, 0.2);
-}
-
-/* Glass handle */
-.glass-handle {
-    position: absolute;
-    right: -38px;
-    top: 18%;
-    width: 42px;
-    height: 50%;
-    border: 2.5px solid rgba(255, 255, 255, 0.2);
-    border-left: none;
-    border-radius: 0 22px 22px 0;
-    background: rgba(255, 255, 255, 0.03);
+    z-index: 1;
 }
 
 /* Bottom Buttons */
 .hero-bottom-actions {
     position: absolute;
-    bottom: 5%;
+    bottom: 4%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
     display: flex;
     gap: 20px;
-    animation: fadeInUp 1s ease 0.8s forwards;
-    opacity: 0;
 }
 
 .btn-rustic {
@@ -659,21 +326,76 @@ img {
     background: rgba(42, 31, 20, 0.9);
 }
 
-/* Sparkle accent */
-.hero-sparkle {
+/* --- Hero Branding Overlay --- */
+.hero-brand-overlay {
     position: absolute;
-    bottom: 8%;
-    right: 5%;
-    z-index: 10;
-    width: 20px;
-    height: 20px;
-    opacity: 0.6;
-    animation: sparkle 3s ease-in-out infinite;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+    pointer-events: none;
+    animation: brandFadeIn 2s ease 0.5s forwards;
+    opacity: 0;
 }
 
-@keyframes sparkle {
-    0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
-    50% { opacity: 0.8; transform: scale(1.2) rotate(15deg); }
+.brand-main {
+    font-family: var(--font-brand);
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 900;
+    color: #f5ede0;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    text-shadow:
+        0 2px 8px rgba(0,0,0,0.7),
+        0 0 60px rgba(0,0,0,0.4),
+        0 0 120px rgba(0,0,0,0.2);
+    line-height: 1.05;
+    margin-bottom: 12px;
+}
+
+.brand-line {
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c8a97e, transparent);
+    margin: 0 auto 16px;
+    animation: lineExpand 1.5s ease 1.5s forwards;
+}
+
+.brand-tagline {
+    font-family: var(--font-brand);
+    font-size: clamp(1.1rem, 2.5vw, 2rem);
+    font-weight: 700;
+    color: #f0e6d0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    margin-bottom: 10px;
+    animation: brandFadeIn 1.5s ease 1.2s forwards;
+    opacity: 0;
+}
+
+.brand-sub {
+    font-family: var(--font-accent);
+    font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(240, 230, 208, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+    animation: brandFadeIn 1.5s ease 1.8s forwards;
+    opacity: 0;
+}
+
+@keyframes brandFadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lineExpand {
+    from { width: 0; }
+    to { width: 250px; }
 }
 
 /* hero-badge, hero-title, hero-subtitle, hero-actions removed - now using new hero layout */
@@ -1476,40 +1198,8 @@ img {
         padding: 80px 0;
     }
 
-    .hero-brand-title {
-        font-size: 2rem;
-        top: 80px;
-        left: 20px;
-    }
-
-    .hero-center {
-        top: 30%;
-        left: 50%;
-    }
-
-    .hero-glass {
-        right: 50%;
-        transform: translateX(50%);
-        bottom: 18%;
-    }
-
-    .glass-container {
-        width: 160px;
-    }
-
-    .glass-body-inner {
-        width: 130px;
-        height: 180px;
-    }
-
-    .pour-stream {
-        height: 150px;
-        top: -150px;
-    }
-
     .hero-bottom-actions {
         bottom: 3%;
-        flex-direction: row;
         gap: 12px;
     }
 
