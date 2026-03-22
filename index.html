@@ -6,7 +6,7 @@
     <title>Cascade Coffee | Premium Nitro Brew</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
@@ -47,32 +47,73 @@
         </ul>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Full Bleed Waterfall -->
     <header class="hero" id="hero">
+        <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
-        <div class="hero-split">
-            <!-- Left: Text Content -->
-            <div class="hero-text">
-                <div class="hero-badge">Premium Nitro Brew</div>
-                <h1 class="hero-title">
-                    <span class="title-line">Where the</span>
-                    <span class="title-line title-accent">Cascade</span>
-                    <span class="title-line">Meets the Cup</span>
-                </h1>
-                <p class="hero-subtitle">Nature's most powerful force — water cascading over ancient stone — inspires every pour. Our nitro brew flows like a waterfall, delivering a velvety smooth cascade of flavor that redefines the coffee experience.</p>
-                <div class="hero-actions">
-                    <a href="#wholesale" class="btn btn-primary">Explore Wholesale</a>
-                    <a href="#experience" class="btn btn-secondary">Watch the Pour</a>
+        <!-- Animated mist/spray overlay -->
+        <canvas id="waterfall-hero-canvas"></canvas>
+
+        <!-- Main title top-left -->
+        <h1 class="hero-brand-title">Cascade Coffee</h1>
+
+        <!-- Center content -->
+        <div class="hero-center">
+            <h2 class="hero-tagline">Experience the Cascade</h2>
+            <p class="hero-subtagline">Nature's Purest Pour. Nitro's Smoothest Finish.</p>
+        </div>
+
+        <!-- Coffee glass with logo -->
+        <div class="hero-glass">
+            <div class="glass-container">
+                <!-- Pour stream -->
+                <div class="pour-stream">
+                    <div class="pour-liquid"></div>
+                </div>
+                <!-- Glass -->
+                <div class="glass-mug">
+                    <div class="glass-body-outer">
+                        <div class="glass-body-inner">
+                            <div class="coffee-fill">
+                                <div class="coffee-swirl swirl-1"></div>
+                                <div class="coffee-swirl swirl-2"></div>
+                                <div class="coffee-swirl swirl-3"></div>
+                            </div>
+                            <div class="foam-layer"></div>
+                            <div class="glass-logo">
+                                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Shield shape -->
+                                    <path d="M60 10L100 30V70C100 90 80 108 60 115C40 108 20 90 20 70V30L60 10Z" fill="rgba(255,248,235,0.15)" stroke="rgba(255,248,235,0.6)" stroke-width="1.5"/>
+                                    <!-- Mountains -->
+                                    <path d="M35 65L48 45L55 55L65 38L80 65" stroke="rgba(255,248,235,0.7)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <!-- Trees -->
+                                    <path d="M42 65L42 75M50 63L50 75M72 63L72 75" stroke="rgba(255,248,235,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M38 65L42 58L46 65M46 63L50 55L54 63M68 63L72 55L76 63" fill="rgba(255,248,235,0.2)" stroke="rgba(255,248,235,0.5)" stroke-width="1"/>
+                                    <!-- Coffee bean -->
+                                    <ellipse cx="60" cy="85" rx="8" ry="10" stroke="rgba(255,248,235,0.6)" stroke-width="1.2" fill="none"/>
+                                    <path d="M60 76C57 80 57 90 60 95" stroke="rgba(255,248,235,0.5)" stroke-width="1"/>
+                                </svg>
+                                <span class="glass-logo-text">Cascade</span>
+                                <span class="glass-logo-sub">Coffee</span>
+                                <span class="glass-logo-tagline">Nitro Cold Brew</span>
+                            </div>
+                        </div>
+                        <!-- Glass handle -->
+                        <div class="glass-handle"></div>
+                    </div>
                 </div>
             </div>
-            <!-- Right: Waterfall → Nitro Brew Animation -->
-            <div class="hero-waterfall">
-                <canvas id="waterfall-hero-canvas"></canvas>
-            </div>
         </div>
-        <div class="hero-scroll">
-            <span>Scroll to discover</span>
-            <div class="scroll-line"></div>
+
+        <!-- Bottom buttons -->
+        <div class="hero-bottom-actions">
+            <a href="#experience" class="btn btn-rustic">Explore Our Brews</a>
+            <a href="#contact" class="btn btn-rustic btn-rustic-filled">Order Now</a>
+        </div>
+
+        <!-- Sparkle -->
+        <div class="hero-sparkle">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z"/></svg>
         </div>
     </header>
 
